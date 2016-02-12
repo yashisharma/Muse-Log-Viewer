@@ -104,15 +104,15 @@ stdin, stdout, stderr = ssh.exec_command("cat "+SPLICEPATH)
 for line in stdout:
 	color = "brown"
 	if "esam.signal.splice" in line:
-			if "type=out" in line:
-				color = "LawnGreen"
-				outCount += 1
-			if "type=in" in line:
-				color = "salmon"
-				inCount += 1
-			if "type=time_signal" in line:
-				color = "blue"
-				timeSignalCount += 1
+		if "type=out" in line:
+			color = "violet"
+			outCount += 1
+		if "type=in" in line:
+			color = "turquoise"
+			inCount += 1
+		if "type=time_signal" in line:
+			color = "steelblue"
+			timeSignalCount += 1
 	if "esam.signal.request" in line:
 		color = "black"
 		requestCount += 1
@@ -120,8 +120,15 @@ for line in stdout:
 		color = "Fuchsia"
 		responseCount += 1
 	if "esam.signal.notif.create" in line:
-		color = "green"
-		createCount += 1
+		if "type=out" in line:
+			color = "purple"
+			outCount += 1
+		if "type=in" in line:
+			color = "LightSeaGreen"
+			inCount += 1
+		if "type=time_signal" in line:
+			color = "DeepSkyBlue"
+			timeSignalCount += 1
 	if "esam.signal.notif.delete" in line:
 		color = "red"
 		deleteCount += 1 
