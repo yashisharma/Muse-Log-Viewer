@@ -41,14 +41,11 @@ print ""
 print ""
 
 IPADDRIN = raw_input('What IP Address do you want to use? (Default is '+ IPADDR +') ')
-PORTIN = raw_input('What port do you want to use? (Default is '+ str(PORT) +') ')
 USERIN = raw_input('What username do you want to use? (Default is '+ USER +') ')
 PASSIN =  raw_input('What password do you want to use? (Default is '+ PASS +') ')
 
 if (len(IPADDRIN) > 0):
 	IPADDR=IPADDRIN
-if (len(PORTIN) > 0):
-	PORT=PORTIN
 if (len(USERIN) > 0):
 	USER=USERIN
 if (len(PASSIN) > 0):
@@ -105,7 +102,7 @@ print "Processing Splice Logs"
 stdin, stdout, stderr = ssh.exec_command("cat "+SPLICEPATH)
 
 for line in stdout:
-	color = "black"
+	color = "brown"
 	if "esam.signal.splice" in line:
 			if "type=out" in line:
 				color = "LawnGreen"
@@ -209,4 +206,4 @@ ssh.close()
 
 webbrowser.open(SpliceFile.name)
 
-print "Finished!"
+raw_input('Finished! Press enter to exit.')
